@@ -1,0 +1,76 @@
+public class FoodActivity extends AppCompatActivity {
+
+	Spinner foodSpinner;
+	
+	EditText label;
+	
+	TextView info;
+
+	Button newItem, btnWelcome, btnToday, btnFood, btnGraph, btnProfile;
+	
+	String [] food = {"Hamburger", "Pizza", "Chicken", "Steak", etc};
+	@Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_food);
+		
+		btnWelcome = findViewById(R.id.button);
+		btnToday = findViewById(R.id.button2);
+		btnFood	= findViewById(R.id.button3);
+		btnGraph = findViewById(R.id.button4);
+		btnProfile = findViewById(R.id.button5);
+		
+		newItem = findViewById(R.id.button6);
+		
+		label = findViewByIdR.id.editText);
+		
+		info = findViewById(R.id.textView);
+		
+		foodSpinner = findViewById(R.id.//spinner id in xml);
+		foodSpinner.setOnItemSelectListener(this);
+		
+		ArrayAdapter ad = new ArrayAdapter(this, android.R.layout.simple_spinner_item, food);
+		
+		ad.setDropDownViewResource(android.R.layout.simple_spinner_item);
+		foodSpinner.setAdapter(ad);
+	}
+	
+	public void onItemSelected(AdapterView<*> arg0, View arg1, int position, long id)
+	{
+		label.setText(getApplicationContext(), food[position])
+	}
+	
+	public void onNothingSelectd(AdapterView<*> arg0)
+	{
+	}
+	
+	//Welcome button action
+	public void onClick(View v){
+		Intent intent = new Intent(this, MainActivity.class);
+		startActivity(intent);
+	}
+	//Today's diet action
+	public void on2Click(View v){
+		Intent intent = new Intent(this, DietActivity.class);
+		startActivity(intent);
+	}
+	//Food items action
+	public void on3Click(View v){
+		Intent intent = new Intent(this, FoodActivity.class);
+		startActivity(intent);
+	}
+	//Graph action
+	public void on4Click(View v){
+		Intent intent = new Intent(this, GraphActivity.class);
+		startActivity(intent);
+	}
+	//Profile action
+	public void on5Click(View v){
+		Intent intent = new Intent(this, ProfileActivity.class);
+		startActivity(intent);
+	}
+	public void onNewItemClick(View v) {
+		Intent intent = new Intent(this, NewItemActivity.class);
+		startActivity(intent);
+	}
+}
